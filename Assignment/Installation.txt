@@ -1,0 +1,22 @@
+To build this subscription-based billing module using Next.js, Tailwind CSS, and Node.js with Stripe,
+
+first we need to setup our Next.js project:
+
+Create a new Next.js project using create-next-app.
+
+
+"create-next-app"
+npx create-next-app my-subscription-app
+
+
+Navigate project directory:
+cd my-subscription-app
+
+Install required dependencies:
+
+npm install stripe stripe-node next-auth axios
+
+Additional Configuration:
+
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=your_stripe_public_key
+STRIPE_SECRET_KEY=your_stripe_secret_key

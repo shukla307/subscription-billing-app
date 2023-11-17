@@ -1,0 +1,44 @@
+To display the selected plan details after successfully creating the subscription and confirm it to the user,
+
+
+import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
+import axios from 'axios';
+
+const SubscriptionDetails = () => {
+  const { data: session } = useSession();
+  const [subscriptionDetails, setSubscriptionDetails] = useState(null);
+
+  useEffect(() => {
+    const fetchSubscriptionDetails = async () => {
+      try {
+        const response = await axios.get('/api/subscription'); // Assuming you have an API route to fetch subscription details
+        setSubscriptionDetails(response.data.subscription);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (session) {
+      fetchSubscriptionDetails();
+    }
+  }, [session]);
+
+  return (
+    <div>
+      {subscriptionDetails ? (
+        <div>
+          <h2>Subscription Details</h2>
+          <p>Plan: {subscriptionDetails.planName}</p>
+          <p>Billing Interval: {subscriptionDetails.interval}</p>
+          {/* Add other relevant subscription details here */}
+        </div>
+      ) : (
+        <p>No subscription details available.</p>
+      )}
+    </div>
+  );
+};
+
+export default SubscriptionDetails;
+

@@ -1,0 +1,30 @@
+components/CancelSubscriptionButton.js
+
+To implement subscription cancellation,
+components/CancelSubscriptionButton.js
+import { useState } from 'react';
+import axios from 'axios';
+
+const CancelSubscriptionButton = ({ subscriptionId, onCancel }) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleCancel = async () => {
+    try {
+      setLoading(true);
+      // Send a request to your API route to cancel the subscription
+      await axios.post('/api/cancel-subscription', { subscriptionId });
+      setLoading(false);
+      // Update the UI or perform any other necessary actions
+      onCancel();
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
+  };
+
+  return (
+    <button type="button" onClick={handleCancel} disabled={loading}>
+      {loading ? 'Cancelling...' : 'Cancel Subscription'}
+    </button>
+  );
+};
