@@ -30,10 +30,20 @@ Visit /auth/register to create a new account and /auth/login to log in with exis
 Available Plans
 Navigate to /plans to view the list of available subscription plans.
 
+
+
 Selecting a Plan and Billing Interval
 Visit /subscribe after logging in.
 Choose a plan from the available options.
 Select the billing interval (monthly/yearly).
 Collecting Credit Card Information
 Enter your test credit card information when prompted to complete the subscription process.
+
+
+<img width="352" alt="image" src="https://github.com/shukla307/subscription-billing-app/assets/78009394/5c789b64-91bb-4ce2-894f-fdcabcc71bc7">
+
+
+
+<img width="431" alt="image" src="https://github.com/shukla307/subscription-billing-app/assets/78009394/4391dfba-b236-4ee9-be8d-2c182ee0334d">
+
 
